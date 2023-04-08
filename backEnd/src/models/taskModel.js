@@ -20,12 +20,16 @@ const taskSchema = new mongoose.Schema({
     }, 
     status: {
       type: String,
-      enum : ["pending","progress","completed"],
+      enum : ["pending"," In progress","completed"],
       default : "pending"
     } ,
-    endTime : {
+    endTime : { /// created at have to add 
         type:Date,
         required:true,
+    },
+    isDeleted :{
+      type:Boolean,
+      default:false
     }
 },{timestamps : true})
 
