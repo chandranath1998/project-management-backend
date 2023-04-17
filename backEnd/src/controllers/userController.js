@@ -29,18 +29,17 @@ try {
 exports.login = async (req, res) => {
     try {
 
-        let { userName, password } = req.body
+        let { email, password } = req.body
 
-        if (!userName || !password) return res.status(400).send({ status: false, message: "plz provide both UserName and password" })
+        if (!email || !password) return res.status(400).send({ status: false, message: "plz provide both email and password" })
 
-        let findCredential = await userModel.findOne({ userName : userName})
+        let findCredential = await userModel.findOne({ email : email})
         if (!findCredential) return res.status(400).send({ status: false, message: "plz provide valid email or password" })
 
         let checkPass = await bcrypt.compare(password, findCredential.password);
 console.log(checkPass)
 
         if (!checkPass) return res.status(400).send({ status: false, message: "password is incorrect" });
-
 
         let token = jwt.sign({ email: findCredential.email }, "task-management", {
         })

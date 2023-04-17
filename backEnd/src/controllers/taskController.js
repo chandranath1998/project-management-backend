@@ -17,7 +17,7 @@ exports.createTask = async (req, res) => {
         message: "user not found",
       });
 
-    if (checkUser.role == "manager") {
+    if (checkUser.role == "Manager") {
       let taskData = await taskModel.create(data);
 
       return res.status(201).send({
@@ -46,7 +46,7 @@ exports.getTask = async (req, res) => {
       _id: userId,
     });
 
-    if (checkUserDetails.role == "manager") {
+    if (checkUserDetails.role == "Manager") {
       let taskDetails = await taskModel.find();
       return res.status(200).send({
         taskDetails,
