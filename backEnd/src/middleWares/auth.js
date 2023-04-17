@@ -8,7 +8,7 @@ exports.authentication = async (req,res,next) =>{
 
     let bearer = token.split(" ") 
     let bearerToken = bearer[1]
-   jwt.verify(bearerToken,"task-management" , function (err,decode){
+   jwt.verify(bearerToken,"chandranath" , function (err,decode){
     if(err) {
         return res.status(401).send({status:false,message:err.message})
     }

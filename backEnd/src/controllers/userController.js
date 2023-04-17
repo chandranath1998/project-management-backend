@@ -41,7 +41,7 @@ console.log(checkPass)
 
         if (!checkPass) return res.status(400).send({ status: false, message: "password is incorrect" });
 
-        let token = jwt.sign({ email: findCredential.email }, "task-management", {
+        let token = jwt.sign({ email: findCredential.email }, "chandranath", {
         })
 
         return res.status(201).send({status:true, token:token })
